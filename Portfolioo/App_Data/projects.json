@@ -1,0 +1,16 @@
+[
+  {
+    "Id": 1,
+    "Title": "Portfolio Website",
+    "ShortDescription": "A personal portfolio showcasing my work.",
+    "FullDescription": "This project is built with ASP.NET MVC and contains details of my work, blog, and contact form.",
+    "ImagePath": "~/Content/Images/portfolio.png"
+  },
+  {
+    "Id": 2,
+    "Title": "Chat Application",
+    "ShortDescription": "A real-time chat app using SignalR.",
+    "FullDescription": "This app supports multiple chat rooms, private messages, and emoji support.",
+    "ImagePath": "~/Content/Images/chatapp.png"
+  }
+]

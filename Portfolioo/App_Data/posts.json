@@ -1,0 +1,16 @@
+[
+  {
+    "Id": 1,
+    "Title": "Welcome to My Blog",
+    "Summary": "Introduction to my portfolio site and blog.",
+    "Content": "This is my first blog post. Here I'll share updates on my projects and ideas.",
+    "Date": "2025-08-10T00:00:00"
+  },
+  {
+    "Id": 2,
+    "Title": "ASP.NET MVC Tips",
+    "Summary": "Best practices for building ASP.NET MVC apps.",
+    "Content": "In this post, I share tips for organizing controllers, models, and views effectively.",
+    "Date": "2025-08-08T00:00:00"
+  }
+]
