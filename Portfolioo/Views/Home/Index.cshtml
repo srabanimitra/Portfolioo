@@ -2,32 +2,50 @@
     ViewBag.Title = "Home Page";
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
+<style>
+    .hero-section {
+        height: 100vh; /* Full screen height */
+        width: 100%; /* Full width */
+        background: linear-gradient(135deg, #ffb6c1, #87ceeb);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        margin: 0; /* Remove spacing */
+    }
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+    .hero-content h1 {
+        font-size: 3em;
+        font-weight: bold;
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    .btn-light {
+        background-color: white;
+        color: #333;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 30px;
+        text-decoration: none;
+    }
+
+        .btn-light:hover {
+            background-color: #ffe082;
+            color: black;
+        }
+</style>
+
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Explore my projects and creative work.</p>
+        <a href="@Url.Action("Index", "Projects")" class="btn btn-lg btn-light">View My Projects</a>
     </div>
-</main>
+</div>
