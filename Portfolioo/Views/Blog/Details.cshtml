@@ -1,0 +1,18 @@
+@model Portfolioo.Models.BlogPost
+<h2>@Model.Title</h2>
+<p>@Model.Content</p>
+
+<h3>Comments</h3>
+<ul>
+    @foreach (var comment in Model.Comments)
+    {
+        <li>@comment</li>
+    }
+</ul>
+
+@using (Html.BeginForm("AddComment", "Blog", FormMethod.Post))
+{
+    @Html.Hidden("id", Model.Id)
+    <textarea name="comment"></textarea>
+    <button type="submit">Add Comment</button>
+}

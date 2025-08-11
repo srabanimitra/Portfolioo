@@ -1,0 +1,16 @@
+@model IEnumerable<Portfolioo.Models.BlogPost>
+@{
+    ViewBag.Title = "Blog";
+}
+<h2>Blog</h2>
+@foreach (var post in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">@Html.ActionLink(post.Title, "Details", new { id = post.Id })</h3>
+        </div>
+        <div class="panel-body">
+            <small>@post.Date.ToString("MMMM dd, yyyy")</small>
+        </div>
+    </div>
+}

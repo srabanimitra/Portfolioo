@@ -6,9 +6,9 @@ using System.Web;
 
 namespace Portfolioo.Models
 {
-    public class SessionHelper
+    public static class SessionHelper
     {
-        public static void SetObject(this HttpSessionStateBase session, string key, object value)
+        public static void SetObject<T>(this HttpSessionStateBase session, string key, T value)
         {
             session[key] = JsonConvert.SerializeObject(value);
         }

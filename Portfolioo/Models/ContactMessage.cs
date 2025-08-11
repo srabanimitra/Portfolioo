@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace Portfolioo.Models
 {
@@ -15,11 +12,9 @@ namespace Portfolioo.Models
         public string Email { get; set; }
 
         [Required]
-        public string Subject { get; set; }
-
-        [Required]
         public string Message { get; set; }
 
-        public DateTime SentAt { get; set; }
+        // New property for storing the time message was sent
+        public DateTime DateSent { get; set; }
     }
 }
