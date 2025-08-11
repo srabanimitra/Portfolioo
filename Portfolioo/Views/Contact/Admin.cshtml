@@ -10,25 +10,57 @@
 }
 else
 {
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Message</th>
-                <th>Date Sent</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var msg in Model)
-            {
+    <div class="admin-table-wrapper">
+        <table class="table table-striped table-bordered custom-table">
+            <thead>
                 <tr>
-                    <td>@msg.Name</td>
-                    <td>@msg.Email</td>
-                    <td>@msg.Message</td>
-                    <td>@msg.DateSent.ToString("g")</td>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                    <th>Date Sent</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var msg in Model)
+                {
+                    <tr>
+                        <td>@msg.Name</td>
+                        <td>@msg.Email</td>
+                        <td>@msg.Message</td>
+                        <td>@msg.DateSent.ToString("g")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 }
+
+<style>
+    .admin-table-wrapper {
+        background: linear-gradient(135deg, #ffe4e9, #e0f7fa); /* pink to light blue */
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin-top: 20px;
+    }
+
+    .custom-table {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+        .custom-table thead th {
+            background-color: #f8bbd0; /* light pink header */
+            color: #880e4f;
+            text-align: center;
+        }
+
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #fce4ec; /* soft pink rows */
+        }
+
+        .custom-table tbody tr:nth-child(odd) {
+            background-color: #e1f5fe; /* soft blue rows */
+        }
+</style>

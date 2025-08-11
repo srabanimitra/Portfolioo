@@ -257,7 +257,9 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\Admin.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="images\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />

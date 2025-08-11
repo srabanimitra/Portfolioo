@@ -3,23 +3,64 @@
     ViewBag.Title = "Contact";
 }
 <h2>Contact Me</h2>
-@if (ViewBag.Success != null)
-{
-    <div class="alert alert-success">@ViewBag.Success</div>
-}
-@using (Html.BeginForm())
-{
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", required = "required" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email)
-        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", required = "required", type = "email" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Message)
-        @Html.TextAreaFor(m => m.Message, new { @class = "form-control", required = "required", rows = 5 })
-    </div>
-    <button type="submit" class="btn btn-primary">Send</button>
-}
+
+<div class="contact-card">
+    @if (ViewBag.Success != null)
+    {
+        <div class="alert alert-success">@ViewBag.Success</div>
+    }
+
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", required = "required" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", required = "required", type = "email" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Message)
+            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", required = "required", rows = 5 })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send</button>
+    }
+</div>
+
+<style>
+    .contact-card {
+        background-color: #ffe4e9; /* light pink */
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        max-width: 600px;
+        margin: auto;
+    }
+
+        .contact-card h2 {
+            color: #880e4f;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    .btn-primary {
+        background-color: #d81b60;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: bold;
+    }
+
+        .btn-primary:hover {
+            background-color: #ad1457;
+        }
+</style>

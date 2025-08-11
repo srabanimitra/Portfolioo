@@ -3,14 +3,48 @@
     ViewBag.Title = "Blog";
 }
 <h2>Blog</h2>
-@foreach (var post in Model)
-{
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">@Html.ActionLink(post.Title, "Details", new { id = post.Id })</h3>
+
+<div class="row">
+    @foreach (var post in Model)
+    {
+        <div class="col-md-6">
+            <div class="blog-card">
+                <h3>@Html.ActionLink(post.Title, "Details", new { id = post.Id })</h3>
+                <p class="date">@post.Date.ToString("MMMM dd, yyyy")</p>
+                <p class="excerpt">@post.Content.Substring(0, Math.Min(100, post.Content.Length))...</p>
+            </div>
         </div>
-        <div class="panel-body">
-            <small>@post.Date.ToString("MMMM dd, yyyy")</small>
-        </div>
-    </div>
-}
+    }
+</div>
+
+<style>
+    .blog-card {
+        background-color: #ffe4e9; /* light pink */
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .blog-card h3 a {
+            text-decoration: none;
+            color: #880e4f;
+            font-weight: bold;
+        }
+
+        .blog-card .date {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .blog-card .excerpt {
+            color: #333;
+        }
+</style>
