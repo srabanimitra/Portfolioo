@@ -5,12 +5,11 @@ using System.Web;
 
 namespace Portfolioo.Models
 {
-    public class Comment
+    public class Reply
     {
         public string Name { get; set; }
         public string Email { get; set; }
         public string Text { get; set; }
-        public DateTime Date { get; set; }
-        public List<string> Replies { get; set; } = new List<string>();
+        public DateTime PostedAt { get; set; }
     }
 }

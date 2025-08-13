@@ -6,13 +6,48 @@
     <p>@Model.Content</p>
 
     <h3>Comments</h3>
-    <ul>
-        @foreach (var comment in Model.Comments)
-        {
-            <li>@comment</li>
-        }
-    </ul>
 
+    @if (Model.Comments.Any())
+    {
+        <ul class="comment-list">
+            @for (int i = 0; i < Model.Comments.Count; i++)
+            {
+                var comment = Model.Comments[i];
+                <li>
+                    <p>
+                        <strong>@comment.Text</strong>
+                        <span class="comment-date">(@comment.Date.ToString("MMM dd, yyyy hh:mm tt"))</span>
+                    </p>
+
+                    @if (comment.Replies.Any())
+                    {
+                        <ul class="reply-list">
+                            @foreach (var reply in comment.Replies)
+                            {
+                                <li>@reply</li>
+                            }
+                        </ul>
+                    }
+
+                    <!-- Reply form -->
+                    @using (Html.BeginForm("AddReply", "Blog", FormMethod.Post))
+                    {
+                        @Html.Hidden("id", Model.Id)
+                        @Html.Hidden("commentIndex", i)
+                        <input type="text" name="reply" placeholder="Write a reply..." class="form-control" />
+                        <button type="submit" class="btn btn-secondary btn-sm" style="margin-top:5px;">Reply</button>
+                    }
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No comments yet.</p>
+    }
+
+    <!-- Add Comment -->
+    <h4>Add a Comment</h4>
     @using (Html.BeginForm("AddComment", "Blog", FormMethod.Post))
     {
         @Html.Hidden("id", Model.Id)
@@ -35,9 +70,37 @@
             font-weight: bold;
         }
 
-        .blog-details-card .date {
-            font-size: 0.9em;
+        .blog-details-card .date, .comment-date {
+            font-size: 0.85em;
             color: #555;
-            margin-bottom: 15px;
+        }
+
+    .comment-list {
+        list-style: none;
+        padding-left: 0;
+       
+        
+    }
+
+        .comment-list li {
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            border: 1px solid #ddd;
+        }
+
+    .reply-list {
+        list-style: none;
+        padding-left: 10px;
+        margin-top: 5px;
+        
+    }
+
+        .reply-list li {
+            background: #f0f0f0;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 5px;
         }
 </style>
